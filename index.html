@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Core | Inteligencia y Cómputo Cuántico</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    background-color: #030712;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(147, 51, 234, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: #e2e8f0;
+    line-height: 1.7;
+}
+
+/* Encabezado Neón */
+header {
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 2px solid #06b6d4;
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.3);
+    padding: 35px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8em;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #f43f5e;
+    text-shadow: 0 0 10px #f43f5e, 0 0 20px #f43f5e, 0 0 40px #a855f7;
+    text-transform: uppercase;
+}
+
+header p {
+    font-family: 'Orbitron', sans-serif;
+    color: #06b6d4;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+/* Barra de Navegación Intuitiva */
+nav {
+    background-color: #090d16;
+    text-align: center;
+    border-bottom: 1px solid #1e293b;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    color: #94a3b8;
+    padding: 18px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav ul li a:hover {
+    color: #38bdf8;
+    border-bottom: 3px solid #f43f5e;
+    background: rgba(56, 189, 248, 0.05);
+    text-shadow: 0 0 8px #38bdf8;
+}
+
+/* Contenedor Principal Vidrio Cuántico */
+main {
+    max-width: 1050px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(6, 182, 212, 0.05);
+}
+
+section {
+    margin-bottom: 45px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #1e293b;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #38bdf8;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-left: 5px solid #f43f5e;
+    padding-left: 15px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+/* Contenedor de Video Stylized */
+.video-container {
+    text-align: center;
+    background: #020617;
+    padding: 20px;
+    border: 1px solid #38bdf8;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    margin: 25px 0;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #a855f7;
+}
+
+/* Galería en Tarjetas Neón (Inline-Block sin Flex/Grid) */
+.gallery-item {
+    display: inline-block;
+    width: 46%;
+    margin: 1.5%;
+    vertical-align: top;
+    background: #090d16;
+    border: 1px solid #a855f7;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Tabla de Datos Criptográficos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background-color: #020617;
+}
+
+table, th, td {
+    border: 1px solid #334155;
+}
+
+th {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0f172a;
+    color: #f43f5e;
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 14px;
+    color: #e2e8f0;
+}
+
+/* Tarjetas Informativas de Etiquetas HTML */
+.tag-explanation {
+    background: rgba(2, 6, 23, 0.8);
+    border-left: 4px solid #06b6d4;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.tag-name {
+    font-family: 'Orbitron', monospace;
+    color: #f43f5e;
+    font-weight: 700;
+}
+
+/* Adaptabilidad Responsiva (Media Queries) */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul li {
+        display: block;
+        border-bottom: 1px solid #1e293b;
+    }
+    
+    .gallery-item {
+        width: 96%;
+        margin: 10px 0;
+    }
+
+    main {
+        margin: 15px;
+        padding: 20px;
+    }
+}
+</style>
+<body>
+
+    <!-- Encabezado HUD Futurista Neón -->
+    <header>
+        <div class="hud-tag">[ SYSTEM STATUS: ONLINE // QUANTUM NODE 01 ]</div>
+        <h1>Quantum Core</h1>
+        <p>Impacto en la Seguridad, Geopolítica y Soberanía Global</p>
+    </header>
+
+    <!-- Navegación Intuitiva Cyber -->
+    <nav>
+        <ul>
+            <li><a href="#introduccion">// Lógica Cuántica</a></li>
+            <li><a href="#video">// Video Demo</a></li>
+            <li><a href="#geopolitica">// Geopolítica</a></li>
+            <li><a href="#galeria">// Mapa Mental</a></li>
+            <li><a href="#etiquetas">// Guía HTML5</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main>
+
+        <!-- Tarjeta Principal Hero / Métricas -->
+        <div class="hero-card">
+            <h2>Paradigma de la Era Cuántica</h2>
+            <p>
+                La computación cuántica representa una ruptura radical en la capacidad de cálculo global[cite: 1]. Mediante el uso de fenómenos de la física subatómica como la superposición y el entrelazamiento, las computadoras cuánticas pueden simular molecularmente materiales complejos, optimizar redes globales y descifrar algoritmos tradicionales en cuestión de segundos[cite: 1].
+            </p>
+            <div class="hero-metrics">
+                <div class="metric-box">
+                    <div class="metric-number">99.99%</div>
+                    <div class="metric-label">Fidelidad de Qubits</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">2^N</div>
+                    <div class="metric-label">Estados Paralelos</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">PQC</div>
+                    <div class="metric-label">Post-Quantum Sec</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 1: Introducción y Lógica Cuántica -->
+        <section id="introduccion">
+            <span class="section-badge">// SECCIÓN 01</span>
+            <h2>Estado del Arte: Lógica Operativa</h2>
+            <p>
+                Las computadoras cuánticas no son simples procesadores ultrarrápidos[cite: 1]. Operan con una lógica totalmente distinta llamada <strong>superposición cuántica</strong>[cite: 1]. Mientras que una computadora clásica evalúa opciones de forma secuencial[cite: 1], el sistema cuántico mantiene todas las configuraciones posibles activas al mismo tiempo, permitiendo una evaluación masiva en paralelo[cite: 1].
+            </p>
+            
+            <div class="content-columns">
+                <div class="column-card">
+                    <h3>Superposición Cuántica</h3>
+                    <p>Un qubit puede ser 0, 1 o una combinación de ambos estados simultáneamente, expandiendo el espacio de procesamiento de forma exponencial[cite: 1].</p>
+                </div>
+                <div class="column-card">
+                    <h3>Entrelazamiento</h3>
+                    <p>Fenómeno donde el estado de un qubit influye de forma instantánea en otro, sin importar la distancia física que los separe[cite: 1].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: Demostración Visual de Video -->
+        <section id="video">
+            <span class="section-badge">// SECCIÓN 02</span>
+            <h2>Demostración Visual: Superposición</h2>
+            <p>
+                En el siguiente video se explica cómo una computadora cuántica resuelve problemas exponenciales al no evaluar un solo camino secuencial, sino todas las posibilidades en paralelo.
+            </p>
+            <div class="video-container">
+                <video controls width="640">
+                    <source src="media/superposicion_cuantica.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="video-caption">[VIDEO FEED] Comparativa: Cómputo Clásico vs. Superposición Cuántica</div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Geopolítica y Criptografía -->
+        <section id="geopolitica">
+            <span class="section-badge">// SECCIÓN 03</span>
+            <h2>Geopolítica y Criptografía</h2>
+            <p>
+                La soberanía del siglo XXI se define en el nivel atómico[cite: 1]. Países como Singapur y los Emiratos Árabes Unidos han desarrollado importantes nodos de soberanía intelectual para evitar el sesgo corporativo y garantizar la estabilidad global a través de la ciencia abierta[cite: 1].
+            </p>
+            <h3>Matriz Comparativa de Criptografía</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Criptografía Cuántica (QKD)</th>
+                        <th>Criptografía Post-cuántica (PQC)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fundamento</strong></td>
+                        <td>Leyes físicas (Entrelazamiento de fotones)[cite: 1].</td>
+                        <td>Algoritmos matemáticos de alta complejidad[cite: 1].</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Infraestructura</strong></td>
+                        <td>Satélites de pares entrelazados y fibra óptica[cite: 1].</td>
+                        <td>Software compatible con el hardware actual[cite: 1].</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Costo</strong></td>
+                        <td>Elevado (Requiere hardware dedicado)[cite: 1].</td>
+                        <td>Bajo (Migración directa por software)[cite: 1].</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Sección 4: Galería de Imágenes -->
+        <section id="galeria">
+            <span class="section-badge">// SECCIÓN 04</span>
+            <h2>Galería de Conocimiento</h2>
+            <p>Estructura multidimensional de las áreas de impacto de la física cuántica e Inteligencia Artificial.</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="media/mind_map.jpg" alt="Mapa Mental de IA y Computación Cuántica">
+                    <p>FIG 1.1: Mapa Mental de Tecnologías Emergentes</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="media/superposicion.jpg" alt="Superposición Cuántica Diagrama">
+                    <p>FIG 1.2: Diagrama de Superposición y Computación Exponencial</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 5: Documentación de Etiquetas HTML5 -->
+        <section id="etiquetas">
+            <span class="section-badge">// SECCIÓN 05</span>
+            <h2>Documentación de Etiquetas HTML5</h2>
+            
+            <div class="tag-explanation">
+                <div class="tag-name">&lt;header&gt;</div>
+                <p class="tag-desc">Define el bloque superior del sitio con el estado del sistema HUD y títulos estilizados.</p>
+            </div>
+            <div class="tag-explanation">
+                <div class="tag-name">&lt;nav&gt;</div>
+                <p class="tag-desc">Barra de navegación con enlaces directos a las secciones principales con brillo neón.</p>
+            </div>
+            <div class="tag-explanation">
+                <div class="tag-name">&lt;main&gt;</div>
+                <p class="tag-desc">Contenedor central con diseño estilo cristal cuántico (Glassmorphism).</p>
+            </div>
+            <div class="tag-explanation">
+                <div class="tag-name">&lt;section&gt;</div>
+                <p class="tag-desc">Bloques temáticos estructurados con badges numéricos independientes.</p>
+            </div>
+            <div class="tag-explanation">
+                <div class="tag-name">&lt;video&gt;</div>
+                <p class="tag-desc">Elemento multimedia nativo para reproducir demostraciones de física cuántica.</p>
+            </div>
+            <div class="tag-explanation">
+                <p class="tag-desc"><span class="tag-name">&lt;table&gt;</span>: Matriz de datos de alta densidad para comparar algoritmos criptográficos.</p>
+            </div>
+            <div class="tag-explanation">
+                <p class="tag-desc"><span class="tag-name">&lt;footer&gt;</span>: Bloque inferior con la firma institucional del proyecto.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2026 QUANTUM CORE // <span>HTML5 SEMÁNTICO & CSS FUTURISTA ÚNICO</span></p>
+    </footer>
+
+</body>
+</html>
